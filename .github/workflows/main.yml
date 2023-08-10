@@ -1,0 +1,26 @@
+name: Update Latest Release
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update README
+        run: |
+          LATEST_RELEASE=$(curl -s https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/latest | grep "tag_name" | awk '{print $2}' | tr -d '",')
+
+          sed -i '/Latest Release:/c\Latest Release: '"$LATEST_RELEASE"'' README.md
+
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -a -m "Update latest release in README" || true
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
