@@ -1,4 +1,8 @@
-# Web-Template
+# React + Vite
 
-A simple web design template to save time and energy for the web developers. The repository has an HTML file that is already connected to bootstrap, font-awesome, CSS style-sheets, javascript files, and PHP files. Besides this, the user can create a folder as per his/ her requirement such as an asset or images folder for creating ease. This is ready to start with a design template and as it is connected with bootstrap one can use this template to design really cool and responsive websites with ease..
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
